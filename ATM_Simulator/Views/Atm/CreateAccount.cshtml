@@ -1,0 +1,15 @@
+﻿<h2>Create your ATM account</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="text-danger">@ViewBag.Error</div>
+}
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label>Choose a 4-digit PIN</label>
+        <input type="password" name="pin" maxlength="4" class="form-control" style="max-width:200px" />
+    </div>
+    <button type="submit" class="btn btn-primary">Create Account</button>
+</form>

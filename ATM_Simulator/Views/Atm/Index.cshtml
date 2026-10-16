@@ -1,0 +1,18 @@
+﻿@model ATM_Simulator.Models.BankAccount
+
+<h2>Welcome to SimpleATM</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<div class="card p-3 mb-3" style="max-width:400px">
+    <p><strong>Account Number:</strong> @Model.AccountNumber</p>
+    <p><strong>Balance:</strong> ₹@Model.Balance.ToString("N2")</p>
+</div>
+
+<a asp-action="Deposit" class="btn btn-success">Deposit</a>
+<a asp-action="Withdraw" class="btn btn-danger">Withdraw</a>
+<a asp-action="Statement" class="btn btn-info">Mini Statement</a>
+<a asp-action="ChangePin" class="btn btn-warning">Change PIN</a>

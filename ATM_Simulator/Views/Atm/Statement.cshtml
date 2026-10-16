@@ -1,0 +1,27 @@
+﻿@model List<ATM_Simulator.Models.AtmTransaction>
+
+<h2>Mini Statement (last 10)</h2>
+
+<table class="table table-bordered" style="max-width:700px">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Type</th>
+            <th>Amount</th>
+            <th>Balance After</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var t in Model)
+        {
+            <tr>
+                <td>@t.Date.ToString("dd-MM-yyyy hh:mm tt")</td>
+                <td>@t.Type</td>
+                <td>₹@t.Amount.ToString("N2")</td>
+                <td>₹@t.BalanceAfter.ToString("N2")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<a asp-action="Index" class="btn btn-secondary">Back</a>

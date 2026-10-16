@@ -1,0 +1,20 @@
+﻿<h2>Withdraw Money</h2>
+
+@if (ViewBag.Error != null)
+{
+    <div class="text-danger mb-2">@ViewBag.Error</div>
+}
+
+<form method="post">
+    @Html.AntiForgeryToken()
+    <div class="mb-3">
+        <label>Amount (₹)</label>
+        <input type="number" name="amount" step="0.01" class="form-control" style="max-width:200px" />
+    </div>
+    <div class="mb-3">
+        <label>Enter your PIN</label>
+        <input type="password" name="pin" maxlength="4" class="form-control" style="max-width:200px" />
+    </div>
+    <button type="submit" class="btn btn-danger">Withdraw</button>
+    <a asp-action="Index" class="btn btn-secondary">Back</a>
+</form>
